@@ -50,11 +50,17 @@ const Video = ({ src, onEnded }) => (
     <video src={src} autoPlay muted onEnded={onEnded} style={{height: '100%'}} />
 );
 
-const RickQuotes = () => (
-    <h1 style={{color: 'white', textAlign: 'center'}}>
-        {QUOTES[Math.floor(Math.random()*QUOTES.length)]}
-    </h1>
-)
+const RickQuotes = () => {
+    const quote = QUOTES[Math.floor(Math.random()*QUOTES.length)];
+
+    document.title = quote;
+
+    return (
+        <h1 style={{color: 'white', textAlign: 'center'}}>
+            {quote}
+        </h1>
+    )
+}
 
 
 class MortysMindblowers extends Component {
