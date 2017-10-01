@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.14"
   },
+  "homepage": "http://mortysmindblowers.fun",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+      "build": "react-scripts build",
+      "deploy": "npm run build && gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
