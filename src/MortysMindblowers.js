@@ -46,9 +46,25 @@ class Imgur {
     }
 }
 
-const Video = ({ src, onEnded }) => (
-    <video src={src} autoPlay playsInLine preload muted onEnded={onEnded}/>
-);
+class Video extends Component {
+    componentDidMount() { this.update(); }
+
+    componentDidUpdate() { this.update(); }
+
+    update() {
+        this.refs.video.setAttribute('muted', '1');
+        this.refs.video.setAttribute('playsinline', '1');
+        this.refs.video.setAttribute('autoplay', '1');
+    }
+
+    render() {
+        const { src, onEnded } = this.props;
+
+        return (
+            <video src={src} autoPlay playsInLine muted onEnded={onEnded} ref="video"/>
+        )
+    }
+};
 
 const RickQuotes = () => {
     const quote = QUOTES[Math.floor(Math.random()*QUOTES.length)];
