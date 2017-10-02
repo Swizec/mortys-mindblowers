@@ -12,4 +12,11 @@ body {
 video {
     display: flex;
     flex: 1;
+    cursor: pointer;
+}
+
+button {
+    font-size: 1em;
+    padding: .5em;
+    cursor: pointer;
 }

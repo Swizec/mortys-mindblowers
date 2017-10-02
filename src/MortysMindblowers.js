@@ -58,10 +58,10 @@ class Video extends Component {
     }
 
     render() {
-        const { src, onEnded } = this.props;
+        const { src, onEnded, onClick } = this.props;
 
         return (
-            <video src={src} autoPlay playsInLine muted onEnded={onEnded} ref="video"/>
+            <video src={src} autoPlay playsInLine muted onEnded={onEnded} onClick={onClick} ref="video"/>
         )
     }
 };
@@ -77,6 +77,12 @@ const RickQuotes = () => {
         </h2>
     )
 }
+
+const Skip = ({ onClick }) => (
+    <div style={{alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
+        <button onClick={onClick}>Skip</button>
+    </div>
+)
 
 
 class MortysMindblowers extends Component {
@@ -124,12 +130,15 @@ class MortysMindblowers extends Component {
     }
 
     render() {
-        const { gifs, index } = this.state;
+        const { gifs, index, morty } = this.state;
 
         return (
             <div style={{display: 'flex', flexDirection: 'column', flex: 1}}>
                 <RickQuotes />
-                <Video src={this.currentGif} onEnded={() => this.next()} />
+                <Video src={this.currentGif}
+                       onEnded={() => this.next()}
+                       onClick={() => !morty ? this.next() : null} />
+                {!morty ? <Skip onClick={() => this.next()} /> : null}
             </div>
         );
     }
