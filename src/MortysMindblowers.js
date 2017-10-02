@@ -99,7 +99,8 @@ class MortysMindblowers extends Component {
 
         this.setState({
             gifs,
-            index: 0
+            index: 0,
+            page: page+1
         });
     }
 
