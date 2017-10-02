@@ -47,7 +47,7 @@ class Imgur {
 }
 
 const Video = ({ src, onEnded }) => (
-    <video src={src} autoPlay muted onEnded={onEnded}/>
+    <video src={src} autoPlay playsInLine preload muted onEnded={onEnded}/>
 );
 
 const RickQuotes = () => {
