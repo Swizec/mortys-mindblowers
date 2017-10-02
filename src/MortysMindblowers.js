@@ -47,7 +47,7 @@ class Imgur {
 }
 
 const Video = ({ src, onEnded }) => (
-    <video src={src} autoPlay muted onEnded={onEnded} style={{height: '100%'}} />
+    <video src={src} autoPlay muted onEnded={onEnded}/>
 );
 
 const RickQuotes = () => {
@@ -56,9 +56,9 @@ const RickQuotes = () => {
     document.title = quote;
 
     return (
-        <h1 style={{color: 'white', textAlign: 'center'}}>
+        <h2 style={{color: 'white', textAlign: 'center'}}>
             {quote}
-        </h1>
+        </h2>
     )
 }
 
@@ -110,8 +110,7 @@ class MortysMindblowers extends Component {
         const { gifs, index } = this.state;
 
         return (
-            <div style={{display: 'flex', flexDirection: 'column',
-                         justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+            <div style={{display: 'flex', flexDirection: 'column', flex: 1}}>
                 <RickQuotes />
                 <Video src={this.currentGif} onEnded={() => this.next()} />
             </div>
