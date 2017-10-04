@@ -35,7 +35,12 @@ class Imgur {
 
     static async gifs(page) {
         const res = await fetch(`${Imgur.URL}gallery/hot/rising/${page}`,
-                                {headers: { Authorization: `Client-ID ${Imgur.CLIENT_ID}`}}),
+                                {
+                                    headers: {
+                                        Authorization: `Client-ID ${Imgur.CLIENT_ID}`
+                                    },
+                                    mode: 'cors'
+                                }),
               json = await res.json();
 
         if (json.success) {
